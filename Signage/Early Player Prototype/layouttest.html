@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>383Signs Player layout prototype</title>
+    <link rel="stylesheet/less" type="text/css" href="style.less" />
+    <script src="less.min.js" type="text/javascript"></script>
+    <script src="nunjucks.js" type="text/javascript"></script>
+    <script src="EventEmitter.js"></script>
+    <script src="moment.js"></script>
+    <script src="plugins.js"></script>
+    <script src="parseDuration.js"></script>
+    <script src="playlist.js"></script>
+    <script>
+      // setup nunjucks
+      let nje = nunjucks.configure('templates', {
+
+      });
+
+      nje.addFilter('json', o => JSON.stringify(o, null, 2))
+    </script>
+  </head>
+  <body id="player-root">
+    <!-- Effectively, this bit of datacode is all that the server would generate -->
+    <div class="template" data-next="all-playlist">
+      <div class="container vertical">
+        <!-- Just a thought... -->
+        <div class="content plugin"
+             data-plugin="OpenWeatherMap"
+             data-apiKey="f0e11f8c36c7ab877b2d5e2c38be9020"
+             data-location="Flint,US"
+             data-update="1h"></div>
+
+        <div class="container horizontal">
+          <div class="content auto">
+            <video src="video.mp4" class="distort" autoplay loop>Oops</video>
+          </div>
+
+          <div class="content auto playlist">
+            <div class="playlist-item"><img class="distort" data-duration="0:05" src="alpha.png"></div>
+            <div class="playlist-item"><img class="distort" src="bravo.jpg"></div>
+            <div class="playlist-item"><img class="distort" src="charlie.PNG"></div>
+            <div class="playlist-item"><img class="fit" data-duration="0:02" src="delta.jpeg"></div>
+          </div>
+        </div>
+
+        <div class="container horizontal">
+          <div class="content auto">
+            <img class="distort" src="bravo.jpg">
+          </div>
+          <div class="content auto">
+            <img class="fit" src="charlie.PNG">
+          </div>
+          <div class="content auto">
+            <img class="fit" src="alpha.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="template" data-next="duration" data-duration="0:05">
+      <div class="content auto">
+        <img class="distort" src="bravo.jpg">
+      </div>
+    </div>
+    <!-- End of datacode -->
+  </body>
+</html>

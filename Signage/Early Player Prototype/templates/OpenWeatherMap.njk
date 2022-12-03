@@ -1,0 +1,18 @@
+<div class="container horizontal">
+  {% for day in days %}
+    <div class="OpenWeatherMap day container horizontal">
+      <img src="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/{{ day.icon }}.png">
+      <div class="text">
+        <div class="day">
+          {{ day.day }}
+        </div>
+        <div class="hilo">
+          {{ day.low }}°/{{ day.high }}°
+        </div>
+        <div class="desc">
+          {{ day.description }}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
